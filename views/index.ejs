@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Utsav is listening to</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/style.css'>
+    <link rel="icon" href="https://www.scdn.co/i/_global/favicon.png">
+    <!-- <script src='/js/main.js'></script> -->
+</head>
+
+<body>
+    <div class="myclass">
+        <h3>Utsav is Now Listening To</h3>
+        <% if(url){ %>
+            <a href="<%= url%>" target="_blank">
+                <img src="/music.svg" alt="" srcset="">
+            </a>
+            <% } else { %>
+                <img src="/music.svg" alt="" srcset="">
+
+                <% } %>
+    </div>
+    <% if(url){ %>
+        <video  name="media"  autoplay controls>
+            <source
+                src="<%= preview_url%>"
+                type="audio/mpeg">
+        </video>
+        <% } %>
+
+</body>
+
+</html>
