@@ -155,6 +155,9 @@ app.get("/currentsong", (_, res) => {
       if (data.statusCode == 200 && data.body.currently_playing_type != "ad") {
         const { is_playing, item } = data.body;
         let { name, preview_url } = item;
+        console.log(name)
+        name = name.split('"').join('')
+        console.log(name)
         const url = item.external_urls.spotify;
         console.log({ is_playing, url, name, preview_url });
         fs.writeFile(
@@ -246,7 +249,9 @@ app.get("/getimage", (_, res) => {
       if (data.statusCode == 200 && data.body.currently_playing_type != "ad") {
         const { is_playing, item } = data.body;
         let { name, preview_url } = item;
-
+        console.log(name)
+        name = name.split('"').join('')
+        console.log(name)
         const url = item.external_urls.spotify;
         console.log({ is_playing, url, name, preview_url });
         fs.writeFile(
