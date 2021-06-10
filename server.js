@@ -28,7 +28,6 @@ const scopes = [
   "user-follow-modify",
 ];
 
-
 var spotifyApi = new SpotifyWebApi({
   clientId: process.env.clientId,
   clientSecret: process.env.clientSecret,
@@ -51,7 +50,6 @@ app.set("view engine", "ejs");
 app.get("/", (_, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
 });
-
 
 app.get("/callback", (req, res) => {
   const error = req.query.error;
@@ -82,7 +80,9 @@ app.get("/callback", (req, res) => {
         `Sucessfully retreived access token. Expires in ${expires_in} s.`
       );
 
-      res.redirect("https://spotify-currently-listening.herokuapp.com/currentsong");
+      res.redirect(
+        "https://spotify-currently-listening.herokuapp.com/currentsong"
+      );
       // res.redirect("http://localhost:5000/currentsong");
       // res.send("Success! You can now close the window.");
 
@@ -155,9 +155,9 @@ app.get("/currentsong", (_, res) => {
       if (data.statusCode == 200 && data.body.currently_playing_type != "ad") {
         const { is_playing, item } = data.body;
         let { name, preview_url } = item;
-        console.log(name)
-        name = name.split('"').join('')
-        console.log(name)
+
+        name = name.split('"').join("");
+
         const url = item.external_urls.spotify;
         console.log({ is_playing, url, name, preview_url });
         fs.writeFile(
@@ -243,15 +243,14 @@ app.get("/currentsong", (_, res) => {
 });
 
 app.get("/getimage", (_, res) => {
-
   spotifyApi.getMyCurrentPlayingTrack().then(
     function (data) {
       if (data.statusCode == 200 && data.body.currently_playing_type != "ad") {
         const { is_playing, item } = data.body;
         let { name, preview_url } = item;
-        console.log(name)
-        name = name.split('"').join('')
-        console.log(name)
+
+        name = name.split('"').join("");
+
         const url = item.external_urls.spotify;
         console.log({ is_playing, url, name, preview_url });
         fs.writeFile(
