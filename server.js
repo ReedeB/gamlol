@@ -286,7 +286,7 @@ app.get("/getimage", (_, res) => {
                                   
                                               <div class="ant-list-item-meta-content">
                                                   <h4 class="ant-list-item-meta-title">
-                                                      <a class="ellipsis-overflow a-spotify" target="_blank" rel="noopener noreferrer"  title="${name}">${name}</a>
+                                                      <a href="${url}" class="ellipsis-overflow a-spotify" target="_blank" rel="noopener noreferrer"  title="${name}">${name}</a>
                                                   </h4>
                                                   
                                             </div>
