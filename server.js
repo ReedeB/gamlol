@@ -234,8 +234,8 @@ app.get("/currentsong", (_, res) => {
     },
     function (err) {
       console.log("Something went wrong!", err);
-      res.render("error");
-      // res.redirect(spotifyApi.createAuthorizeURL(scopes));
+      // res.render("error");
+      res.redirect(spotifyApi.createAuthorizeURL(scopes));
     }
   );
 });
