@@ -320,8 +320,8 @@ app.get("/getimage", (_, res) => {
     },
     function (err) {
       console.log("Something went wrong!", err);
-      // res.sendFile(__dirname + "/public/nomusic.svg");
-      res.redirect(spotifyApi.createAuthorizeURL(scopes));
+      res.sendFile(__dirname + "/public/nomusic.svg");
+      // res.redirect(spotifyApi.createAuthorizeURL(scopes));
     }
   );
 });
