@@ -22,6 +22,8 @@ Also user can get 30sec audio of a song which is currently i am listening on spo
 
 <hr/>
 
+##### Video demo <a href="https://www.linkedin.com/posts/utsavshekh_node-readme-spotify-activity-6808654164114079744-cBBe">view</a> 
+
 ##### Here is snapshot of demo. 
 
 <hr/>
