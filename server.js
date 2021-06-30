@@ -91,12 +91,16 @@ app.get("/callback", (req, res) => {
       // res.send("Success! You can now close the window.");
 
       setInterval(async () => {
-        const data = await spotifyApi.refreshAccessToken();
-        const access_token = data.body["access_token"];
+        try {
+          const data = await spotifyApi.refreshAccessToken();
+          const access_token = data.body["access_token"];
 
-        console.log("The access token has been refreshed!");
-        // console.log("access_token:", access_token);
-        spotifyApi.setAccessToken(access_token);
+          console.log("The access token has been refreshed!");
+          // console.log("access_token:", access_token);
+          spotifyApi.setAccessToken(access_token);
+        } catch (error) {
+          console.log("error in callbackfunction");
+        }
       }, 60 * 1000);
     })
     .catch((error) => {
@@ -107,12 +111,16 @@ app.get("/callback", (req, res) => {
 
 app.get("/currentsong", (_, res) => {
   setInterval(async () => {
-    const data = await spotifyApi.refreshAccessToken();
-    const access_token = data.body["access_token"];
+    try {
+      const data = await spotifyApi.refreshAccessToken();
+      const access_token = data.body["access_token"];
 
-    console.log("The access token has been refreshed!");
-    // console.log("access_token:", access_token);
-    spotifyApi.setAccessToken(access_token);
+      console.log("The access token has been refreshed!");
+      // console.log("access_token:", access_token);
+      spotifyApi.setAccessToken(access_token);
+    } catch (error) {
+      console.log("error in /currentsong");
+    }
   }, 60 * 1000);
   let datasvg = `<svg width="400" style="height:auto;" viewBox="0 0 400 102" fill="none"
   xmlns="http://www.w3.org/2000/svg">
@@ -256,12 +264,16 @@ app.get("/currentsong", (_, res) => {
 
 app.get("/getimage", (_, res) => {
   setInterval(async () => {
-    const data = await spotifyApi.refreshAccessToken();
-    const access_token = data.body["access_token"];
+    try {
+      const data = await spotifyApi.refreshAccessToken();
+      const access_token = data.body["access_token"];
 
-    console.log("The access token has been refreshed!");
-    // console.log("access_token:", access_token);
-    spotifyApi.setAccessToken(access_token);
+      console.log("The access token has been refreshed!");
+      // console.log("access_token:", access_token);
+      spotifyApi.setAccessToken(access_token);
+    } catch (error) {
+      console.log("error in /getimage");
+    }
   }, 60 * 1000);
   spotifyApi.getMyCurrentPlayingTrack().then(
     function (data) {
