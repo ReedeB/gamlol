@@ -95,7 +95,7 @@ app.get("/callback", (req, res) => {
           const data = await spotifyApi.refreshAccessToken();
           const access_token = data.body["access_token"];
 
-          console.log("The access token has been refreshed!");
+          console.log("The access token has been refreshed! [in callback]");
           // console.log("access_token:", access_token);
           spotifyApi.setAccessToken(access_token);
         } catch (error) {
@@ -115,7 +115,7 @@ app.get("/currentsong", (_, res) => {
       const data = await spotifyApi.refreshAccessToken();
       const access_token = data.body["access_token"];
 
-      console.log("The access token has been refreshed!");
+      console.log("The access token has been refreshed! [in currentsong]");
       // console.log("access_token:", access_token);
       spotifyApi.setAccessToken(access_token);
     } catch (error) {
@@ -268,7 +268,7 @@ app.get("/getimage", (_, res) => {
       const data = await spotifyApi.refreshAccessToken();
       const access_token = data.body["access_token"];
 
-      console.log("The access token has been refreshed!");
+      console.log("The access token has been refreshed! [in getimage]");
       // console.log("access_token:", access_token);
       spotifyApi.setAccessToken(access_token);
     } catch (error) {
